@@ -4,79 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
-    <!-- Link de 1 include de bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
-<body class="py-3 px-5">
-    <h2>Formulario</h2>
-    <hr>
-    <div class="row g-3">
-        <div class="col-md-6">
-            <label class="form-label" for="nombre">Nombre</label>
-            <input class="form-control" id="nombre" type="text" placeholder="Ingrese su nombre">
-            <div id="err-nombre"></div>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label" for="password">Contraseña</label>
-            <input class="form-control" id="password" type="text" placeholder="Ingrese la contraseña">
-            <label class="form-label" for="verificar_pass">Confirmar Contraseña</label>
-            <input class="form-control" id="verificar_pass" type="text" placeholder="Ingrese la contraseña nuevamente">
-            <div id="err-password"></div>
-        </div>
-        <div class="col-md-6">
-            <p>Dirección</p>
-            <div>
-                <p>Comuna</p>
-                <select class="form-label" name ="comunas" id="comuna">
-                    <option value="">Seleccione una comuna</option>
-                    <option value="Corral">Corral</option>
-                    <option value="Futrono">Futrono</option>
-                    <option value="Lago Ranco">Lago Ranco</option>
-                    <option value="Lanco">Lanco</option>
-                    <option value="La Unión">La Unión</option>
-                    <option value="Los Lagos">Los Lagos</option>
-                    <option value="Máfil">Máfil</option>
-                    <option value="Mariquina">Mariquina</option>
-                    <option value="Paillaco">Paillaco</option>
-                    <option value="Panguipulli">Panguipulli</option>
-                    <option value="Río Bueno">Río Bueno</option>
-                    <option value="Valdivia">Valdivia</option>
-                </select>
-                <div id="err-comuna"></div>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i>Formulario de Registro</h2>
             </div>
-            <label class="form-label" for="domicilio">Domicilio</label>
-            <input class="form-control" id="domicilio" type="text" placeholder="Ingrese su dirección">
-            <div id="err-domicilio"></div>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label" for="telefono">Teléfono</label>
-            <input class="form-control" id="telefono" type="text" placeholder="Ingrese su número teléfonico, Ej: +56 91234567">
-            <div id="err-telefono"></div>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label" for="pag_web">Página Web personal</label>
-            <input class="form-control" id="pag_web" type="text" placeholder="Ingrese la url de su pagina web">
-            <div id="err-pagina"></div>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label" for="pasatiempo">Pasatiempos</label>
-            <input class="form-control" id="pasatiempo" type="text" placeholder="Ej: Actividades al aire libre, Leer, Deportes, etc. ">
-            <div id="err-pasatiempo"></div>
-            <button onclick="ingresarLista()" class="btn btn-primary">Ingresar pasatiempo</button>
-            <div class="my-4">
-                <h3>Lista de pasatiempos</h3>
-                <hr>
-                <ul id="lista"></ul>
-                <div id="err-lista"></div>
-            </div>    
-        </div>
-        <div class="col">
-            <div id="mensaje-resultado" class="alert" style="display: none;"></div>
-            <button onclick="ingresar()" class="btn btn-primary" type="submit">Ingresar</button>
+            
+            <div class="card-body">
+                <form class="row g-4">
+                    <!-- Sección de Información Personal -->
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="nombre" type="text" placeholder="Ingrese su nombre">
+                            <label for="nombre"><i class="bi bi-person me-2"></i>Nombre</label>
+                            <div id="err-nombre" class="form-text text-danger"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sección de Contraseña -->
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="password" type="password" placeholder="Contraseña">
+                            <label for="password"><i class="bi bi-key me-2"></i>Contraseña</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="verificar_pass" type="password" placeholder="Confirmar">
+                            <label for="verificar_pass"><i class="bi bi-key-fill me-2"></i>Confirmar Contraseña</label>
+                            <div id="err-password" class="form-text text-danger"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sección de Dirección -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0"><i class="bi bi-house me-2"></i>Dirección</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label" for="comuna"><i class="bi bi-geo-alt me-2"></i>Comuna</label>
+                                    <select class="form-select form-select-lg" name="comunas" id="comuna">
+                                        <option value="">Seleccione una comuna</option>
+                                        <option value="Corral">Corral</option>
+                                        <option value="Futrono">Futrono</option>
+                                        <option value="Lago Ranco">Lago Ranco</option>
+                                        <option value="Lanco">Lanco</option>
+                                        <option value="La Unión">La Unión</option>
+                                        <option value="Los Lagos">Los Lagos</option>
+                                        <option value="Máfil">Máfil</option>
+                                        <option value="Mariquina">Mariquina</option>
+                                        <option value="Paillaco">Paillaco</option>
+                                        <option value="Panguipulli">Panguipulli</option>
+                                        <option value="Río Bueno">Río Bueno</option>
+                                        <option value="Valdivia">Valdivia</option>
+                                    </select>
+                                    <div id="err-comuna" class="form-text text-danger"></div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="domicilio" type="text" placeholder="Dirección">
+                                    <label for="domicilio"><i class="bi bi-signpost me-2"></i>Domicilio</label>
+                                    <div id="err-domicilio" class="form-text text-danger"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección de Contacto -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0"><i class="bi bi-person-vcard me-2"></i>Contacto</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                    <input class="form-control" id="telefono" type="tel" placeholder="+56 91234567">
+                                    <div id="err-telefono" class="form-text text-danger w-100"></div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="bi bi-globe"></i></span>
+                                    <input class="form-control" id="pag_web" type="url" placeholder="https://ejemplo.com">
+                                    <div id="err-pagina" class="form-text text-danger w-100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección de Pasatiempos -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0"><i class="bi bi-stars me-2"></i>Pasatiempos</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="bi bi-plus-circle"></i></span>
+                                    <input class="form-control" id="pasatiempo" type="text" placeholder="Ej: Actividades al aire libre, Leer, Deportes, etc.">
+                                    <button onclick="ingresarLista()" class="btn btn-primary" type="button">
+                                        <i class="bi bi-plus-lg me-2"></i>Agregar
+                                    </button>
+                                </div>
+                                <div id="err-pasatiempo" class="form-text text-danger"></div>
+                                <ul id="lista" class="list-group mt-3"></ul>
+                                <div id="err-lista" class="form-text text-danger"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección de Submit -->
+                    <div class="col-12 text-center">
+                        <div id="mensaje-resultado" class="alert" style="display: none;"></div>
+                        <button type="button" onclick="ingresar()" class="btn btn-primary btn-lg px-5">
+                            <i class="bi bi-check-circle me-2"></i>Registrar
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <!-- Link de 2 include de bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

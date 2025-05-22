@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <!-- Link de 1 include de bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body class="py-3 px-5">
+    <h2>Formulario</h2>
+    <hr>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control" id="nombre" type="text" placeholder="Ingrese su nombre">
+            <div id="err-nombre"></div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="password">Contraseña</label>
+            <input class="form-control" id="password" type="text" placeholder="Ingrese la contraseña">
+            <label class="form-label" for="verificar_pass">Confirmar Contraseña</label>
+            <input class="form-control" id="verificar_pass" type="text" placeholder="Ingrese la contraseña nuevamente">
+            <div id="err-password"></div>
+        </div>
+        <div class="col-md-6">
+            <p>Dirección</p>
+            <div>
+                <p>Comuna</p>
+                <select class="form-label" name ="comunas" id="comuna">
+                    <option value="">Seleccione una comuna</option>
+                    <option value="Corral">Corral</option>
+                    <option value="Futrono">Futrono</option>
+                    <option value="Lago Ranco">Lago Ranco</option>
+                    <option value="Lanco">Lanco</option>
+                    <option value="La Unión">La Unión</option>
+                    <option value="Los Lagos">Los Lagos</option>
+                    <option value="Máfil">Máfil</option>
+                    <option value="Mariquina">Mariquina</option>
+                    <option value="Paillaco">Paillaco</option>
+                    <option value="Panguipulli">Panguipulli</option>
+                    <option value="Río Bueno">Río Bueno</option>
+                    <option value="Valdivia">Valdivia</option>
+                </select>
+                <div id="err-comuna"></div>
+            </div>
+            <label class="form-label" for="domicilio">Domicilio</label>
+            <input class="form-control" id="domicilio" type="text" placeholder="Ingrese su dirección">
+            <div id="err-domicilio"></div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="telefono">Teléfono</label>
+            <input class="form-control" id="telefono" type="text" placeholder="Ingrese su número teléfonico, Ej: +56 91234567">
+            <div id="err-telefono"></div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="pag_web">Página Web personal</label>
+            <input class="form-control" id="pag_web" type="text" placeholder="Ingrese la url de su pagina web">
+            <div id="err-pagina"></div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="pasatiempo">Pasatiempos</label>
+            <input class="form-control" id="pasatiempo" type="text" placeholder="Ej: Actividades al aire libre, Leer, Deportes, etc. ">
+            <div id="err-pasatiempo"></div>
+            <button onclick="ingresarLista()" class="btn btn-primary">Ingresar pasatiempo</button>
+            <div class="my-4">
+                <h3>Lista de pasatiempos</h3>
+                <hr>
+                <ul id="lista"></ul>
+                <div id="err-lista"></div>
+            </div>    
+        </div>
+        <div class="col">
+            <div id="mensaje-resultado" class="alert" style="display: none;"></div>
+            <button onclick="ingresar()" class="btn btn-primary" type="submit">Ingresar</button>
+        </div>
+    </div>
+    <!-- Link de 2 include de bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="src/script.js"></script>
+</body>
+</html>
